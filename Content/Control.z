@@ -1,0 +1,41 @@
+class Control : ZilchComponent
+{
+    var JumpCount : Integer = 0;
+    var TotalJumps : Integer = 0;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        var movement = Real3(0,0,0);
+        
+        if(Zero.Keyboard.KeyIsDown(Keys.Right)){
+            movement.X += 1;
+        }
+        if(Zero.Keyboard.KeyIsPressed(Keys.Right)){
+            this.Space.FindObjectByName("Player").Sprite.SpriteSource = SpriteSource.Find("Alice_Dash_Right");
+        }
+        if(Zero.Keyboard.KeyIsReleased(Keys.Right)){
+            this.Space.FindObjectByName("Player").Sprite.SpriteSource = SpriteSource.Find("Square");
+        }
+        
+        if(Zero.Keyboard.KeyIsDown(Keys.Left)){
+            movement.X -= 1;
+        }
+        if(Zero.Keyboard.KeyIsPressed(Keys.Up) && this.JumpCount < 2){
+            this.Owner.SweptController.JumpUnconditionally();
+            this.JumpCount += 1;
+            this.TotalJumps += 1;
+            
+        }
+        if(this.Owner.SweptController.Grounded){
+            this.JumpCount = 0;
+        }
+        
+        this.Owner.SweptController.Update(movement, event.Dt);
+        Console.WriteLine("`this.TotalJumps`");
+    }
+}

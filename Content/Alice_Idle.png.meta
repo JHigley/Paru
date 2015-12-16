@@ -1,0 +1,20 @@
+ImageContent = 
+{
+	SpriteSourceBuilder = 
+	{
+		string Name = "Alice_Idle",
+		uint64 ResourceId = 566626f78d34816e,
+		uint64 AtlasId = 5274cf95e4a661fd,
+		uint FrameSizeX = 51,
+		uint FrameSizeY = 95,
+		uint FrameCount = 16,
+		float FrameDelay = 0.0833333358,
+		float OriginX = 25,
+		float OriginY = 47,
+		float PixelsPerUnit = 64,
+		bool Smoothing = false,
+		bool Looping = true,
+		Vec4 Slices = [0, 0, 0, 0],
+		SpriteFill Fill = Stretch,
+	},
+},
