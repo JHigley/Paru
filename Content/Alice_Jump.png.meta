@@ -2,15 +2,15 @@ ImageContent =
 {
 	SpriteSourceBuilder = 
 	{
-		string Name = "Alice_Dash_Right",
-		uint64 ResourceId = 5664fc06da668989,
+		string Name = "Alice_Jump",
+		uint64 ResourceId = 5664f4c5878e60b3,
 		uint64 AtlasId = 5274cf95e4a661fd,
-		uint FrameSizeX = 72,
-		uint FrameSizeY = 91,
-		uint FrameCount = 3,
+		uint FrameSizeX = 80,
+		uint FrameSizeY = 99,
+		uint FrameCount = 9,
 		float FrameDelay = 0.0833333358,
-		float OriginX = 36,
-		float OriginY = 45,
+		float OriginX = 40,
+		float OriginY = 49,
 		float PixelsPerUnit = 64,
 		bool Smoothing = false,
 		bool Looping = false,

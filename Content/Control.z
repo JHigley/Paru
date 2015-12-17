@@ -19,20 +19,35 @@ class Control : ZilchComponent
             this.Space.FindObjectByName("Player").Sprite.SpriteSource = SpriteSource.Find("Alice_Dash_Right");
         }
         if(Zero.Keyboard.KeyIsReleased(Keys.Right)){
-            this.Space.FindObjectByName("Player").Sprite.SpriteSource = SpriteSource.Find("Square");
+            this.Space.FindObjectByName("Player").Sprite.SpriteSource = SpriteSource.Find("Alice_Idle");
         }
+        
+
         
         if(Zero.Keyboard.KeyIsDown(Keys.Left)){
             movement.X -= 1;
         }
+        if(Zero.Keyboard.KeyIsPressed(Keys.Left)){
+            this.Space.FindObjectByName("Player").Sprite.SpriteSource = SpriteSource.Find("Alice_Dash_Left");
+        }
+        if(Zero.Keyboard.KeyIsReleased(Keys.Left)){
+            this.Space.FindObjectByName("Player").Sprite.SpriteSource = SpriteSource.Find("Alice_Idle");
+        }
+        
+        
+        
         if(Zero.Keyboard.KeyIsPressed(Keys.Up) && this.JumpCount < 2){
             this.Owner.SweptController.JumpUnconditionally();
             this.JumpCount += 1;
             this.TotalJumps += 1;
             
         }
+        if(Zero.Keyboard.KeyIsPressed(Keys.Up)){
+            this.Space.FindObjectByName("Player").Sprite.SpriteSource = SpriteSource.Find("Alice_Jump");
+        }
         if(this.Owner.SweptController.Grounded){
             this.JumpCount = 0;
+         //   this.Space.FindObjectByName("Player").Sprite.SpriteSource = SpriteSource.Find("Alice_Idle");
         }
         
         this.Owner.SweptController.Update(movement, event.Dt);
