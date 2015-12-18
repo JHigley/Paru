@@ -35,6 +35,14 @@ class Control : ZilchComponent
         }
         
         
+        if(Zero.Keyboard.KeyIsPressed(Keys.Z)){
+            this.Space.FindObjectByName("Player").Sprite.SpriteSource = SpriteSource.Find("Alice_Attack1");
+            
+            var bulletSpawn = this.Space.FindObjectByName("Player").Transform.Translation;
+            var bullet = Archetype.Bullet;
+            
+            this.Space.CreateAtPosition(bullet, bulletSpawn);
+        }
         
         if(Zero.Keyboard.KeyIsPressed(Keys.Up) && this.JumpCount < 2){
             this.Owner.SweptController.JumpUnconditionally();
